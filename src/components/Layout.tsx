@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={styles.layout}>
       <Header />
       <div className={styles.content}>{children}</div>
-      {import.meta.env.MODE !== 'production' && <DebugNav />}
+      {/* {import.meta.env.MODE !== 'production' && <DebugNav />} */}
 
     </div>
   );

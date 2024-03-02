@@ -16,6 +16,7 @@
 body {
   font-family: var(--main-font);
   color: var(--text-color);
+  background-color: var(--accent-color);
 }
 
 h2 {
