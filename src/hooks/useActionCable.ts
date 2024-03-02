@@ -15,7 +15,9 @@ const useActionCable = (
   const [translatedSummary, setTranslatedSummary] =
     useState<TranslatedSummaryType | null>(null);
   useEffect(() => {
-    const consumer: Cable = createConsumer('ws://localhost:3000/cable');
+    const consumer: Cable = createConsumer(
+      `ws://${import.meta.env.VITE_API_URL}`,
+    );
     let subscription: Subscription;
 
     const connectChannel = () => {

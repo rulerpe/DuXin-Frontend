@@ -10,7 +10,7 @@ import {
   UpdateTempUserResponse,
 } from '../types';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = `https://${import.meta.env.VITE_API_URL}`;
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.withCredentials = true;
