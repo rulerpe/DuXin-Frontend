@@ -75,6 +75,7 @@ const CameraPage = () => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
         onUserMedia={handleUserMedia}
+        videoConstraints={{ facingMode: 'environment' }}
         className={styles.webcam}
       />
       <div className={styles.buttonContainer}>
