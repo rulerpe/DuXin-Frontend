@@ -16,7 +16,7 @@ const useActionCable = (
     useState<TranslatedSummaryType | null>(null);
   useEffect(() => {
     const consumer: Cable = createConsumer(
-      `ws://${import.meta.env.VITE_API_URL}`,
+      `wss://${import.meta.env.VITE_API_URL}/cable`,
     );
     let subscription: Subscription;
 
