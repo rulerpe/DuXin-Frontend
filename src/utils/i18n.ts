@@ -26,6 +26,12 @@ const resources = {
       submitOTP: 'Verify',
       invalidOTP: 'Invalid pass code',
       submitOTPFailed: 'Pass code submit failed',
+      serverError: 'Something went wrong. Please try again later.',
+      networkError:
+        'No response from server. Please check your network connection.',
+      requestError:
+        'An error occurred while making the request. Please try again.',
+      loginSuccess: 'Login successful.',
     },
   },
   zh: {
@@ -50,6 +56,10 @@ const resources = {
       submitOTP: '验证',
       invalidOTP: '验证码无效，请重新输入',
       submitOTPFailed: '发送失败',
+      serverError: '发生错误，请稍后再试',
+      networkError: '服务器无响应。请检查您的网络连接',
+      requestError: '请求时发生错误，请再试一次',
+      loginSuccess: '成功登陆',
     },
   },
 };

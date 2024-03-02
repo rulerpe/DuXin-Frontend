@@ -8,7 +8,7 @@ import { useUser } from '../contexts/UserContext';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { setUser } = useUser();
 
@@ -20,6 +20,7 @@ const HomePage = () => {
     try {
       setIsLoading(true);
       const response = await updateUserLanguage(language);
+      i18n.changeLanguage(language);
       setUser(response.user);
       console.log('Update language success');
     } catch (error) {

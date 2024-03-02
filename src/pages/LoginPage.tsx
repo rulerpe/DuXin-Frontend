@@ -70,7 +70,7 @@ const LoginPage = () => {
         user,
       );
       setUser(otpVerifyResponse.user);
-      showNotification({ message: 'Login successful!', type: 'success' })
+      showNotification({ message: 'loginSuccess', type: 'success' })
       navigate('/');
     } catch (error) {
       setError(t('submitOTPFailed'));

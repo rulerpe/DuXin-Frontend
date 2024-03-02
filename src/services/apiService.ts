@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { showNotification } from './notificationService';
 import {
@@ -17,14 +17,7 @@ const api = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
 });
-// axios.defaults.baseURL = BASE_URL;
-// axios.defaults.withCredentials = true;
 
-// api.interceptors.response.use(response => response, error => {
-//   const message = error.response?.data?.message || 'An unknown error occurred';
-//   showNotification(message, 'error');
-//   return Promise.reject(error);
-// });
 interface ErrorResponse {
   message?: string;
 }
@@ -34,19 +27,14 @@ const handleAxiosError = (error: AxiosError) => {
   if (error.response) {
     if (error.response.status !== 401) {
       errorMessage =
-        (error.response.data as ErrorResponse).message ||
-        'Something went wrong. Please try again later.';
+        (error.response.data as ErrorResponse).message || 'serverError';
     }
   } else if (error.request) {
-    errorMessage =
-      'No response from server. Please check your network connection.';
+    errorMessage = 'networkError';
   } else {
-    errorMessage =
-      'An error occurred while making the request. Please try again.';
+    errorMessage = 'requestError';
   }
-  console.log('before if', errorMessage);
   if (errorMessage) {
-    console.log('errormessag', errorMessage);
     showNotification({ message: errorMessage, type: 'error' });
   }
 };
@@ -55,7 +43,6 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     handleAxiosError(error);
-    console.log('response error', error);
     return Promise.reject(error);
   },
 );

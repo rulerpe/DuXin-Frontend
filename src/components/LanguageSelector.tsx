@@ -15,7 +15,6 @@ const LanguageSelector = ({
   const { i18n } = useTranslation();
 
   const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language);
     if (onLanguageChange) {
       onLanguageChange(language);
     }
