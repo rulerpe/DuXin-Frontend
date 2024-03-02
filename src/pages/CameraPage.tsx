@@ -80,30 +80,33 @@ const CameraPage = () => {
         videoConstraints={{ facingMode: 'environment' }}
         className={styles.webcam}
       />
-      <div className={styles.buttonContainer}>
-        {uploading ? (
-          <div className={styles.spinnerContainer}>
-            <FontAwesomeIcon icon={faSpinner} spin={true} size="3x" />
-          </div>
-        ) : (
-          <>
-            <div className={styles.fillerButton}></div>
-            <button onClick={capture} className={styles.captureButton}>
-              <FontAwesomeIcon icon={faCamera} size="3x" />
-            </button>
+      {!isWebcamInitializing && (
+        <div className={styles.buttonContainer}>
+          {uploading ? (
+            <div className={styles.spinnerContainer}>
+              <FontAwesomeIcon icon={faSpinner} spin={true} size="3x" />
+            </div>
+          ) : (
+            <>
+              <div className={styles.fillerButton}></div>
+              <button onClick={capture} className={styles.captureButton}>
+                <FontAwesomeIcon icon={faCamera} size="3x" />
+              </button>
 
-            <label className={styles.fileUploadButton}>
-              <FontAwesomeIcon icon={faImages} size="2x" />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className={styles.fileInput}
-              />
-            </label>
-          </>
-        )}
-      </div>
+              <label className={styles.fileUploadButton}>
+                <FontAwesomeIcon icon={faImages} size="2x" />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className={styles.fileInput}
+                />
+              </label>
+            </>
+          )}
+        </div>
+      )}
+
     </>
   );
 };
