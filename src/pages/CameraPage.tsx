@@ -8,7 +8,7 @@ import {
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/CameraPage.module.css';
-import { apiService } from '../services/apiService';
+import { uploadImage } from '../services/apiService';
 import usePrepareImage from '../hooks/usePrepareImage';
 
 const CameraPage = () => {
@@ -22,12 +22,12 @@ const CameraPage = () => {
   const { preparedImage } = usePrepareImage(unpreparedImage);
 
   useEffect(() => {
-    const uploadImage = async () => {
+    const upload = async () => {
       if (preparedImage) {
         try {
           setUploading(true);
           const uploadImageResponse =
-            await apiService.uploadImage(preparedImage);
+            await uploadImage(preparedImage);
           console.log('upload image success', uploadImageResponse);
           navigate('/summary');
         } catch (error) {
@@ -37,7 +37,7 @@ const CameraPage = () => {
         }
       }
     };
-    uploadImage();
+    upload();
   }, [preparedImage]);
 
   const capture = async (): Promise<void> => {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { isAxiosError } from 'axios';
-import { apiService } from '../services/apiService';
+import { fetchCurrentUser, createTempUser } from '../services/apiService';
 import { useUser } from '../contexts/UserContext';
 import { useTranslation } from 'react-i18next';
 import styles from '../styles/Header.module.css';
@@ -15,7 +15,7 @@ const Header = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const getUserResponse = await apiService.getUser();
+        const getUserResponse = await fetchCurrentUser();
         console.log('getUserResponse.user', getUserResponse.user);
         setUser(getUserResponse.user);
         i18n.changeLanguage(getUserResponse.user.language);
@@ -23,7 +23,7 @@ const Header = () => {
         // if no authuraized user if found, create a temp user account
         if (isAxiosError(error) && error.response?.status === 401) {
           try {
-            const tempUserResponse = await apiService.createTempUser(
+            const tempUserResponse = await createTempUser(
               i18n.language,
             );
             setUser(tempUserResponse.user);

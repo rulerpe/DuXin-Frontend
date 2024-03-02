@@ -1,0 +1,42 @@
+.notificationBanner {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  color: var(--secondary-text-color);
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notificationBanner.success {
+  background-color: #4caf50;
+}
+
+.notificationBanner.error {
+  background-color: var(--error-color);
+}
+.notificationBanner.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.notificationMessage {
+  flex-grow: 1;
+}
+
+.notificationCloseBtn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

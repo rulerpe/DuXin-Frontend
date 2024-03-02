@@ -1,19 +1,19 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
-import { UserProvider } from './contexts/UserContext';
+import ContextProviders from './contexts/ContextProviders';
 import Layout from './components/Layout';
 import 'normalize.css';
 import './utils/i18n';
 
 const App = () => {
   return (
-    <UserProvider>
+    <ContextProviders >
       <Router>
         <Layout>
           <Routes />
         </Layout>
       </Router>
-    </UserProvider>
+    </ContextProviders >
   );
 };
 

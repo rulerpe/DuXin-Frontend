@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import LanguageSelector from '../components/LanguageSelector';
 import Button from '../components/Button';
-import { apiService } from '../services/apiService';
+import { updateUserLanguage } from '../services/apiService';
 import { useUser } from '../contexts/UserContext';
 
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
     console.log('language change', language);
     try {
       setIsLoading(true);
-      const response = await apiService.updateUserLanguage(language);
+      const response = await updateUserLanguage(language);
       setUser(response.user);
       console.log('Update language success');
     } catch (error) {

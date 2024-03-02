@@ -8,15 +8,8 @@ interface UserContextType {
 
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
-export function useUser() {
-  const context = useContext(UserContext)
-  if (context === undefined) {
-    throw new Error('useUser must used in a UserProvider')
-  }
-  return context
-}
 
-export function UserProvider({ children }: { children: ReactNode }) {
+export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
 
   return (
@@ -24,4 +17,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
       {children}
     </UserContext.Provider>
   )
+}
+
+export const useUser = () => {
+  const context = useContext(UserContext)
+  if (context === undefined) {
+    throw new Error('useUser must used in a UserProvider')
+  }
+  return context
 }
