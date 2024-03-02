@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import Header from './Header';
-import DebugNav from './DebugNav';
 import styles from '../styles/Layout.module.css';
 
 interface LayoutProps {
@@ -11,7 +10,6 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={styles.layout}>
       <Header />
       <div className={styles.content}>{children}</div>
-      {/* {import.meta.env.MODE !== 'production' && <DebugNav />} */}
 
     </div>
   );
