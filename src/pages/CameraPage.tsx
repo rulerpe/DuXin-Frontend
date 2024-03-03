@@ -10,6 +10,7 @@ import {
 import styles from '../styles/CameraPage.module.css';
 import { uploadImage } from '../services/apiService';
 import usePrepareImage from '../hooks/usePrepareImage';
+import PageWrapper from '../components/PageWrapper';
 
 const CameraPage = () => {
   const webcamRef = useRef<Webcam>(null);
@@ -26,8 +27,7 @@ const CameraPage = () => {
       if (preparedImage) {
         try {
           setUploading(true);
-          const uploadImageResponse =
-            await uploadImage(preparedImage);
+          const uploadImageResponse = await uploadImage(preparedImage);
           console.log('upload image success', uploadImageResponse);
           navigate('/summary');
         } catch (error) {
@@ -66,7 +66,7 @@ const CameraPage = () => {
   };
 
   return (
-    <>
+    <PageWrapper>
       {isWebcamInitializing && (
         <div className={styles.webcamLoading}>
           <FontAwesomeIcon icon={faSpinner} spin={true} size="3x" />
@@ -106,8 +106,7 @@ const CameraPage = () => {
           )}
         </div>
       )}
-
-    </>
+    </PageWrapper>
   );
 };
 

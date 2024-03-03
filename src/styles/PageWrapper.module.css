@@ -1,0 +1,21 @@
+.pageWrapper {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hasPadding {
+  padding: 0 10px;
+}
+
+.isCentered {
+  justify-content: center;
+  align-items: center;
+}
+
+.isScrollable {
+  overflow: auto;
+}

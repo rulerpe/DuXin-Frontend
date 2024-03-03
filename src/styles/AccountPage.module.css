@@ -1,0 +1,23 @@
+.accountInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.phoneNumber {
+  flex: 3;
+  font-size: var(--font-size-small);
+}
+.logoutBtn {
+  flex: 1;
+}
+
+.summaryHistoryTitle {
+  font-size: var(--font-size-small);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--secondary-background-color);
+}

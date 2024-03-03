@@ -2,7 +2,6 @@
   width: 100%;
   padding: 15px 20px;
   margin: 10px 0;
-  font-size: var(--font-size-medium);
   background-color: var(--primary-color);
   color: var(--secondary-text-color);
   border: none;
@@ -15,4 +14,16 @@
   background-color: var(--secondary-background-color);
   color: var(--text-color);
   cursor: not-allowed;
+}
+
+.small {
+  font-size: var(--font-size-small);
+}
+
+.median {
+  font-size: var(--font-size-medium);
+}
+
+.large {
+  font-size: var(--font-size-large);
 }

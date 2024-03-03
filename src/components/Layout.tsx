@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Header from './Header';
-import NotificationBanner from "./NotificationBanner";
+import NotificationBanner from './NotificationBanner';
 import styles from '../styles/Layout.module.css';
 
 interface LayoutProps {
@@ -11,8 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={styles.layout}>
       <Header />
       <NotificationBanner />
-      <div className={styles.content}>{children}</div>
-
+      {children}
     </div>
   );
 };

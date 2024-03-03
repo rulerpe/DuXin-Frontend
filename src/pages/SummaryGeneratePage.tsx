@@ -4,8 +4,10 @@ import { STAGES } from '../types';
 import useActionCable from '../hooks/useActionCable';
 import ProgressBar from '../components/ProgressBar';
 import Button from '../components/Button';
+import PageWrapper from '../components/PageWrapper';
+import SummaryDetail from '../components/SummaryDetail';
 
-const SummaryPage = () => {
+const SummaryGeneratePage = () => {
   const navigate = useNavigate();
   const { currentStage, translatedSummary } = useActionCable(
     'SummaryTranslationChannel',
@@ -18,15 +20,16 @@ const SummaryPage = () => {
   };
 
   return (
-    <>
+    <PageWrapper isScrollable={true}>
       {currentStage === 'summary_translation_completed' && translatedSummary ? (
         <>
-          <h2>{t('summaryTitle')}</h2>
-          <p>{translatedSummary.title}</p>
-          <h2>{t('summaryBody')}</h2>
-          <p>{translatedSummary.body}</p>
-          <h2>{t('summaryAction')}</h2>
-          <p>{translatedSummary.action}</p>
+          <SummaryDetail
+            summary={{
+              title: translatedSummary.title,
+              body: translatedSummary.body,
+              action: translatedSummary.action,
+            }}
+          />
           <br />
           <Button label={t('navigateToCamera')} onClick={handleButtonClick} />
         </>
@@ -40,8 +43,8 @@ const SummaryPage = () => {
           <p>{t(`${currentStage}`)}</p>
         </>
       )}
-    </>
+    </PageWrapper>
   );
 };
 
-export default SummaryPage;
+export default SummaryGeneratePage;

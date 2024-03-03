@@ -31,6 +31,10 @@ export interface CreateUserResponse {
   message: string;
 }
 
+export interface LogoutResponse {
+  message: string;
+}
+
 export interface TranslatedSummaryType {
   title: string;
   body: string;
@@ -50,8 +54,18 @@ export const STAGES: { [key: string]: number } = {
   summary_translation_completed: 4,
 };
 
-// process_started: 'Process started',
-// text_extraction_completed: 'Text extraction completed',
-// summarizing_text_completed: 'Summarizing text completed',
-// translating_text_completed: 'Translating text completed',
-// summary_translation_success: 'Summary translation successful',
+export interface Summary {
+  created_at: string;
+  extracted_text: string;
+  id: number;
+  original_action: string;
+  original_body: string;
+  original_language: string | null;
+  original_title: string;
+  translated_action: string;
+  translated_body: string;
+  translated_title: string;
+  translation_language: string;
+  updated_at: string;
+  user_id: number;
+}

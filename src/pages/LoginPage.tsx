@@ -2,10 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../contexts/UserContext';
-import { useNotification } from "../contexts/NotificationContext";
+import { useNotification } from '../contexts/NotificationContext';
 import { createUser, otpVerify } from '../services/apiService';
 import Button from '../components/Button';
 import styles from '../styles/LoginPage.module.css';
+import PageWrapper from '../components/PageWrapper';
 
 type SetStateAction = React.Dispatch<React.SetStateAction<string>>;
 
@@ -19,7 +20,7 @@ const LoginPage = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const otpInputRef = useRef<HTMLInputElement>(null);
-  const { showNotification } = useNotification()
+  const { showNotification } = useNotification();
 
   // Validation functions
   const validatePhoneNumber = (number: string): boolean =>
@@ -64,13 +65,9 @@ const LoginPage = () => {
     }
     try {
       setIsLoading(true);
-      const otpVerifyResponse = await otpVerify(
-        phoneNumber,
-        otp,
-        user,
-      );
+      const otpVerifyResponse = await otpVerify(phoneNumber, otp, user);
       setUser(otpVerifyResponse.user);
-      showNotification({ message: 'loginSuccess', type: 'success' })
+      showNotification({ message: 'loginSuccess', type: 'success' });
       navigate('/');
     } catch (error) {
       setError(t('submitOTPFailed'));
@@ -95,7 +92,7 @@ const LoginPage = () => {
   }, [otpSent]);
 
   return (
-    <>
+    <PageWrapper>
       {!otpSent ? (
         <>
           <h2>{t('signinPhoneNumber')}</h2>
@@ -137,7 +134,7 @@ const LoginPage = () => {
           />
         </>
       )}
-    </>
+    </PageWrapper>
   );
 };
 

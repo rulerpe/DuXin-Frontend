@@ -3,12 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { showNotification } from './notificationService';
 import {
   User,
+  Summary,
   GetUserResponse,
   CreateTempUserResponse,
   OtpVerifPayload,
   OtpVerifyResponse,
   CreateUserResponse,
   UpdateTempUserResponse,
+  LogoutResponse,
 } from '../types';
 
 const BASE_URL = `https://${import.meta.env.VITE_API_URL}`;
@@ -111,9 +113,21 @@ export const updateUserLanguage = async (
   return response.data;
 };
 
-export const getSummary = async (): Promise<any> => {
-  const summaryUrl = `${BASE_URL}/summary_translations`;
-  const response = await api.get<any>(summaryUrl);
+export const logout = async (): Promise<LogoutResponse> => {
+  const logoutUrl = `/logout`;
+  const response = await api.delete<LogoutResponse>(logoutUrl);
+  return response.data;
+};
+
+export const fetchSummaries = async (page: number): Promise<Summary[]> => {
+  const summaryUrl = `${BASE_URL}/summary_translations?page=${page}`;
+  const response = await api.get<Summary[]>(summaryUrl);
+  return response.data;
+};
+
+export const deleteSummary = async (summaryId: number): Promise<string> => {
+  const summaryUrl = `${BASE_URL}/summary_translations/${summaryId}`;
+  const response = await api.delete<string>(summaryUrl);
   return response.data;
 };
 

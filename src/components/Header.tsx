@@ -10,7 +10,7 @@ import { faChevronLeft, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { setUser } = useUser();
+  const { user, setUser } = useUser();
   const { t, i18n } = useTranslation();
   useEffect(() => {
     const getUser = async () => {
@@ -23,9 +23,7 @@ const Header = () => {
         // if no authuraized user if found, create a temp user account
         if (isAxiosError(error) && error.response?.status === 401) {
           try {
-            const tempUserResponse = await createTempUser(
-              i18n.language,
-            );
+            const tempUserResponse = await createTempUser(i18n.language);
             setUser(tempUserResponse.user);
           } catch (error) {
             console.error('Failed to create temp user', error);
@@ -44,6 +42,13 @@ const Header = () => {
       navigate('/');
     }
   };
+  const onUser = () => {
+    if (user && user.user_type === 'USER') {
+      navigate('/account');
+    } else {
+      navigate('login');
+    }
+  };
   return (
     <header className={styles.header}>
       <button onClick={onBack} className={styles.iconButton}>
@@ -53,11 +58,9 @@ const Header = () => {
         <h1 className={styles.title}>{t('appName')}</h1>
       </Link>
 
-      <Link to="/login">
-        <button className={styles.iconButton}>
-          <FontAwesomeIcon icon={faUser} />
-        </button>
-      </Link>
+      <button onClick={onUser} className={styles.iconButton}>
+        <FontAwesomeIcon icon={faUser} />
+      </button>
     </header>
   );
 };

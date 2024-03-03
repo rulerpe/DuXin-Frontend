@@ -1,0 +1,29 @@
+.summaryListWrapper {
+  overflow: auto;
+  font-size: var(--font-size-medium);
+}
+
+.summaryRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    flex-grow: 1;
+  }
+  .deleteBtn {
+    flex-shrink: 0;
+  }
+}
+.darkRow {
+  background-color: var(--secondary-background-color);
+}
+
+.moreBtnWrapper {
+  padding: 10px;
+}

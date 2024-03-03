@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import LanguageSelector from '../components/LanguageSelector';
 import Button from '../components/Button';
+import PageWrapper from '../components/PageWrapper';
 import { updateUserLanguage } from '../services/apiService';
 import { useUser } from '../contexts/UserContext';
 
@@ -30,7 +31,7 @@ const HomePage = () => {
     }
   };
   return (
-    <>
+    <PageWrapper>
       <h2>{t('welcomText')}</h2>
       <Button
         label={t('navigateToCamera')}
@@ -41,7 +42,7 @@ const HomePage = () => {
         onLanguageChange={handleLanguageChange}
         isDisabled={isLoading}
       />
-    </>
+    </PageWrapper>
   );
 };
 

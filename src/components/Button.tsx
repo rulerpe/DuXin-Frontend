@@ -7,9 +7,16 @@ interface ButtonProps {
   onClick: () => void;
   isLoading?: boolean;
   isDisabled?: boolean;
+  size?: 'small' | 'median' | 'large';
 }
 
-const Button = ({ label, onClick, isLoading, isDisabled }: ButtonProps) => {
+const Button = ({
+  label,
+  onClick,
+  isLoading = false,
+  isDisabled = false,
+  size = 'median',
+}: ButtonProps) => {
   const handleClick = () => {
     if (!isLoading && !isLoading) {
       onClick();
@@ -17,7 +24,7 @@ const Button = ({ label, onClick, isLoading, isDisabled }: ButtonProps) => {
   };
   return (
     <button
-      className={`${styles.button} ${isDisabled ? styles.disabled : ''}`}
+      className={`${styles.button} ${isDisabled ? styles.disabled : ''} ${styles[size]}`}
       onClick={handleClick}
       disabled={isDisabled}
     >

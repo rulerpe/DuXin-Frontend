@@ -32,6 +32,12 @@ const resources = {
       requestError:
         'An error occurred while making the request. Please try again.',
       loginSuccess: 'Login successful.',
+      phoneNumberLabel: 'Phone Number',
+      logoutButton: 'Logout',
+      logoutSuccess: 'Logout successful.',
+      summaryHistory: 'History',
+      moreSummaryButton: 'Load more',
+      deleteSummaryButton: 'Delete',
     },
   },
   zh: {
@@ -60,6 +66,12 @@ const resources = {
       networkError: '服务器无响应。请检查您的网络连接',
       requestError: '请求时发生错误，请再试一次',
       loginSuccess: '成功登陆',
+      phoneNumberLabel: '电话号码',
+      logoutButton: '登出',
+      logoutSuccess: '成功登出',
+      summaryHistory: '历史',
+      moreSummaryButton: '更多',
+      deleteSummaryButton: '删除',
     },
   },
 };
