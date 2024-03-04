@@ -27,7 +27,7 @@ const CameraPage = () => {
       if (preparedImage) {
         try {
           setUploading(true);
-          const uploadImageResponse = await uploadImage(preparedImage);
+          await uploadImage(preparedImage);
           navigate('/summary');
         } catch (error) {
           console.error(error);
