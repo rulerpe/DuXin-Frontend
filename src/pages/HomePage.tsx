@@ -17,13 +17,11 @@ const HomePage = () => {
     navigate('/camera');
   };
   const handleLanguageChange = async (language: string) => {
-    console.log('language change', language);
     try {
       setIsLoading(true);
       const response = await updateUserLanguage(language);
       i18n.changeLanguage(language);
       setUser(response.user);
-      console.log('Update language success');
     } catch (error) {
       console.error('Change language failed');
     } finally {

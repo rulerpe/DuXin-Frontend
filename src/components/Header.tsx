@@ -16,7 +16,6 @@ const Header = () => {
     const getUser = async () => {
       try {
         const getUserResponse = await fetchCurrentUser();
-        console.log('getUserResponse.user', getUserResponse.user);
         setUser(getUserResponse.user);
         i18n.changeLanguage(getUserResponse.user.language);
       } catch (error) {

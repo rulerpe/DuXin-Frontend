@@ -37,7 +37,6 @@ const useActionCable = (
             ) {
               setTranslatedSummary(data.translated_json);
             }
-            console.log('received:', data);
           },
           connected() {
             console.log('Connected to channel');

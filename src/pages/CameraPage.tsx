@@ -28,10 +28,9 @@ const CameraPage = () => {
         try {
           setUploading(true);
           const uploadImageResponse = await uploadImage(preparedImage);
-          console.log('upload image success', uploadImageResponse);
           navigate('/summary');
         } catch (error) {
-          console.log(error);
+          console.error(error);
         } finally {
           setUploading(false);
         }
@@ -61,7 +60,6 @@ const CameraPage = () => {
   };
 
   const handleUserMedia = () => {
-    console.log('handleUserMedia');
     setIsWebcamInitializing(false);
   };
 

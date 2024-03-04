@@ -59,9 +59,6 @@ const SummaryList = () => {
     });
   };
 
-  useEffect(() => {
-    console.log('summary', summaryList);
-  }, [summaryList]);
   return (
     <div className={styles.summaryListWrapper}>
       {summaryList.map((summary, index) => (
