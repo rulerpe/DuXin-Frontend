@@ -24,11 +24,20 @@ const Button = ({
   };
   return (
     <button
-      className={`${styles.button} ${isDisabled ? styles.disabled : ''} ${styles[size]}`}
+      className={`${styles.button} ${styles[size]} ${isDisabled ? styles.disabled : ''}`}
       onClick={handleClick}
       disabled={isDisabled}
+      data-testid="button"
     >
-      {isLoading ? <FontAwesomeIcon icon={faSpinner} spin={true} /> : label}
+      {isLoading ? (
+        <FontAwesomeIcon
+          icon={faSpinner}
+          spin={true}
+          data-testid="buttonLoadingIcon"
+        />
+      ) : (
+        label
+      )}
     </button>
   );
 };

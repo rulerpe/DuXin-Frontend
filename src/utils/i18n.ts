@@ -38,6 +38,8 @@ const resources = {
       summaryHistory: 'History',
       moreSummaryButton: 'Load more',
       deleteSummaryButton: 'Delete',
+      summaryGeneratePageError:
+        'There is an error processing the image, please try again.',
     },
   },
   zh: {
@@ -72,6 +74,7 @@ const resources = {
       summaryHistory: '历史',
       moreSummaryButton: '更多',
       deleteSummaryButton: '删除',
+      summaryGeneratePageError: '出现错误，请再试一次',
     },
   },
 };

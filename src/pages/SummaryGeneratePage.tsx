@@ -5,11 +5,11 @@ import useActionCable from '../hooks/useActionCable';
 import ProgressBar from '../components/ProgressBar';
 import Button from '../components/Button';
 import PageWrapper from '../components/PageWrapper';
-import SummaryDetail from '../components/SummaryDetail';
+import SummaryDetail, { SummaryDetailProps } from '../components/SummaryDetail';
 
 const SummaryGeneratePage = () => {
   const navigate = useNavigate();
-  const { currentStage, translatedSummary } = useActionCable(
+  const { currentStage, translatedSummary, error } = useActionCable(
     'SummaryTranslationChannel',
   );
 
@@ -19,32 +19,55 @@ const SummaryGeneratePage = () => {
     navigate('/camera');
   };
 
-  return (
-    <PageWrapper isScrollable={true}>
-      {currentStage === 'summary_translation_completed' && translatedSummary ? (
-        <>
-          <SummaryDetail
-            summary={{
-              title: translatedSummary.title,
-              body: translatedSummary.body,
-              action: translatedSummary.action,
-            }}
-          />
-          <br />
-          <Button label={t('navigateToCamera')} onClick={handleButtonClick} />
-        </>
-      ) : (
-        <>
-          <ProgressBar
-            stages={Object.keys(STAGES)}
-            currentStage={STAGES[currentStage]}
-          />
-          <br />
-          <p>{t(`${currentStage}`)}</p>
-        </>
-      )}
-    </PageWrapper>
-  );
+  const errorView = () => {
+    return (
+      <>
+        <h2>{t('summaryGeneratePageError')}</h2>
+        <Button label={t('navigateToCamera')} onClick={handleButtonClick} />
+      </>
+    );
+  };
+
+  const progressBarView = () => {
+    return (
+      <>
+        <ProgressBar
+          stages={Object.keys(STAGES)}
+          currentStage={STAGES[currentStage]}
+        />
+        <br />
+        <p>{t(`${currentStage}`)}</p>
+      </>
+    );
+  };
+
+  const summaryDetailView = ({ summary }: SummaryDetailProps) => {
+    return (
+      <>
+        <SummaryDetail summary={summary} />
+        <br />
+        <Button label={t('navigateToCamera')} onClick={handleButtonClick} />
+      </>
+    );
+  };
+
+  const views = () => {
+    if (error) {
+      return errorView();
+    }
+    if (currentStage === 'summary_translation_completed' && translatedSummary) {
+      return summaryDetailView({
+        summary: {
+          title: translatedSummary.title,
+          body: translatedSummary.body,
+          action: translatedSummary.action,
+        },
+      });
+    }
+    return progressBarView();
+  };
+
+  return <PageWrapper isScrollable={true}>{views()}</PageWrapper>;
 };
 
 export default SummaryGeneratePage;

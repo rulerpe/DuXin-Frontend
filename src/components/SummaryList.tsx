@@ -68,10 +68,14 @@ const SummaryList = () => {
         <div
           className={`${styles.summaryRow} ${isDarkRowClass(index)}`}
           key={`${summary.id}${index}`}
-          onClick={() => onSummaryClicked(summary)}
         >
           <div className={styles.date}>{formatDate(summary.created_at)}</div>
-          <div className={styles.title}>{summary.translated_title}</div>
+          <div
+            className={styles.title}
+            onClick={() => onSummaryClicked(summary)}
+          >
+            {summary.translated_title}
+          </div>
           <div className={styles.deleteBtn}>
             <Button
               label={t('deleteSummaryButton')}

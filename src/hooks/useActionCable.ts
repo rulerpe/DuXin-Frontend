@@ -14,6 +14,8 @@ const useActionCable = (
     useState<keyof typeof STAGES>('extracting_text');
   const [translatedSummary, setTranslatedSummary] =
     useState<TranslatedSummaryType | null>(null);
+  const [error, setError] = useState<boolean>(false);
+
   useEffect(() => {
     const consumer: Cable = createConsumer(
       `wss://${import.meta.env.VITE_API_URL}/cable`,
@@ -26,6 +28,9 @@ const useActionCable = (
         {
           received(data: SummaryTranslationChannelMessage) {
             setCurrentStage(data.stage);
+            if (data.stage === 'error') {
+              setError(true);
+            }
             if (
               data.stage === 'summary_translation_completed' &&
               data.translated_json
@@ -50,7 +55,7 @@ const useActionCable = (
       consumer.disconnect();
     };
   }, [channelName, params]);
-  return { currentStage, translatedSummary };
+  return { currentStage, translatedSummary, error };
 };
 
 export default useActionCable;

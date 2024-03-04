@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-interface SummaryDetailProps {
+export interface SummaryDetailProps {
   summary: { title: string; body: string; action: string };
 }
 

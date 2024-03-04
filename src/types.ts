@@ -43,7 +43,7 @@ export interface TranslatedSummaryType {
 
 export interface SummaryTranslationChannelMessage {
   message: string;
-  stage: keyof typeof STAGES;
+  stage: keyof typeof STAGES | 'error';
   translated_json?: TranslatedSummaryType;
 }
 

@@ -15,6 +15,7 @@ const ProgressBar = ({ currentStage, stages }: ProgressBarProps) => {
   return (
     <div className={styles.progressBarContainer}>
       <div
+        data-testid="progressBarFill"
         className={progressBarClasses}
         style={{ width: `${progress}%` }}
       ></div>
