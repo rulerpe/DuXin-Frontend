@@ -13,7 +13,6 @@ const LanguageSelector = ({
   isDisabled,
 }: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
-
   const changeLanguage = (language: string) => {
     if (onLanguageChange) {
       onLanguageChange(language);
@@ -32,6 +31,8 @@ const LanguageSelector = ({
       >
         <option value="zh">中文</option>
         <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
       </select>
 
       <FontAwesomeIcon icon={faChevronDown} className={styles.dropdownArrow} />
