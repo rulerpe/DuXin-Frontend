@@ -74,8 +74,8 @@ Project Link: [https://github.com/rulerpe/DuXine](https://github.com/rulerpe/DuX
 
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
+[React-url]: https://github.com/rulerpe/DuXin-Frontend
 [TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=FFF
-[TypeScript-url]: https://www.typescriptlang.org/
+[TypeScript-url]: https://github.com/rulerpe/DuXin-Frontend
 [Ruby-on-Rails]: https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white
-[Ruby-on-Rails-url]: https://rubyonrails.org/
+[Ruby-on-Rails-url]: https://github.com/rulerpe/DuXin
