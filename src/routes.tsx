@@ -5,8 +5,10 @@ import SummaryGeneratePage from './pages/SummaryGeneratePage';
 import CameraPage from './pages/CameraPage';
 import AccountPage from './pages/AccountPage';
 import SummaryDetailPage from './pages/SummaryDetailPage';
+import useAnalytics from './hooks/useAnalytics';
 
 const AppRoutes = () => {
+  useAnalytics();
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>

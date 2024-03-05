@@ -7,13 +7,13 @@ import './utils/i18n';
 
 const App = () => {
   return (
-    <ContextProviders >
+    <ContextProviders>
       <Router>
         <Layout>
           <Routes />
         </Layout>
       </Router>
-    </ContextProviders >
+    </ContextProviders>
   );
 };
 

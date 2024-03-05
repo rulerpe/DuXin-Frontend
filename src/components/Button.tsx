@@ -1,6 +1,7 @@
 import styles from '../styles/Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { sendEvent } from '../utils/ga4';
 
 interface ButtonProps {
   label: string;
@@ -19,6 +20,7 @@ const Button = ({
 }: ButtonProps) => {
   const handleClick = () => {
     if (!isLoading && !isLoading) {
+      sendEvent(label);
       onClick();
     }
   };
