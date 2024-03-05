@@ -64,7 +64,7 @@ const CameraPage = () => {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper hasPadding={false}>
       {isWebcamInitializing && (
         <div className={styles.webcamLoading}>
           <FontAwesomeIcon icon={faSpinner} spin={true} size="3x" />
