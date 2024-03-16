@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-///////delete
+
 const useDeviceLanguage = (): string => {
   const [language, setLanguage] = useState('');
 
