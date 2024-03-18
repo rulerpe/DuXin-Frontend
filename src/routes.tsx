@@ -5,6 +5,7 @@ import SummaryGeneratePage from './pages/SummaryGeneratePage';
 import CameraPage from './pages/CameraPage';
 import AccountPage from './pages/AccountPage';
 import SummaryDetailPage from './pages/SummaryDetailPage';
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import useAnalytics from './hooks/useAnalytics';
 
 const AppRoutes = () => {
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/summary/:id" element={<SummaryDetailPage />}></Route>
       <Route path="/camera" element={<CameraPage />}></Route>
       <Route path="/account" element={<AccountPage />}></Route>
+      <Route path="/privacy-policy" element={<PrivacyPolicyPage />}></Route>
     </Routes>
   );
 };

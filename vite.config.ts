@@ -9,11 +9,11 @@ let httpsOptions = {};
 if (!isProduction) {
   const crtPath = path.resolve(
     __dirname,
-    '/home/rulerpe/selfCert/localhostfrontend.crt',
+    './localhostfrontend.crt',
   );
   const keyPath = path.resolve(
     __dirname,
-    '/home/rulerpe/selfCert/localhostfrontend.key',
+    './localhostfrontend.key',
   );
   httpsOptions = {
     key: fs.readFileSync(keyPath),
