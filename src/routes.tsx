@@ -7,6 +7,7 @@ import AccountPage from './pages/AccountPage';
 import SummaryDetailPage from './pages/SummaryDetailPage';
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import useAnalytics from './hooks/useAnalytics';
+import DeleteAccountRequestPage from "./pages/DeleteAccountRequestPage";
 
 const AppRoutes = () => {
   useAnalytics();
@@ -19,6 +20,7 @@ const AppRoutes = () => {
       <Route path="/camera" element={<CameraPage />}></Route>
       <Route path="/account" element={<AccountPage />}></Route>
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />}></Route>
+      <Route path="/delete-account-request" element={<DeleteAccountRequestPage />}></Route>
     </Routes>
   );
 };

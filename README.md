@@ -1,4 +1,3 @@
-
 <a name="readme-top"></a>
 
 <br />
@@ -9,12 +8,12 @@
   <p align="center">
     Empowering non English speaker with seamless mail translation and summarization
     <br />
-    <a href="https://www.duxinapp.com"><strong>View Demo</strong></a>
+    <a href="https://web.duxinapp.com"><strong>View Demo</strong></a>
   </p>
 </div>
 
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 This project was inspired by my dad, a senior immigrant who is not tech-savvy and not proficient in English. People like him have a significant need to understand their mail letters. That's why I created Duxin, a letter translator and summarizer. Duxin is an intuitive application designed to help non-tech-savvy seniors and non-English speakers effortlessly understand their mail in their native language.
@@ -23,13 +22,11 @@ The app was built with a mobile-first approach, recognizing that it's more conve
 
 <p align="right">(<a target="_blank" href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
 
-* [![React][React.js]][React-url]
-* [![TypeScript][TypeScript]][TypeScript-url]
-* [![Ruby-on-Rails][Ruby-on-Rails]][Ruby-on-Rails-url]
+- [![React][React.js]][React-url]
+- [![TypeScript][TypeScript]][TypeScript-url]
+- [![Ruby-on-Rails][Ruby-on-Rails]][Ruby-on-Rails-url]
 
 The frontend Reactjs app lives in this repo, [click here to checkout the backend rails api repo](https://github.com/rulerpe/DuXin)
 
@@ -48,11 +45,13 @@ The frontend Reactjs app lives in this repo, [click here to checkout the backend
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## How it Works
+
 1. **Language Selection:** The app automatically detects your browser's language setting for immediate convenience, with the option to manually select a different language if desired.
 2. **Scan:** Utilize your device's camera to scan the physical mail letter you wish to understand.
 3. **Summarize:** The app then processes the scanned image to extract text, generate a summary.
 4. **Translate:** Automatically translated into chosen language.
-5. **Read:**  The translated summary is displayed on your screen for easy reading.
+5. **Read:** The translated summary is displayed on your screen for easy reading.
+
 - **optional:** Sign up with just your phone number to track and manage your summary history.
 
 **Note:** Signup functionality leverages OTP verification via Twilio and is currently a work in progress. However, you can sign in with a test account to explore this feature. Use the test phone number: 1234567890, and test OTP code: 123456 for access.
@@ -60,6 +59,7 @@ The frontend Reactjs app lives in this repo, [click here to checkout the backend
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Supported Languages
+
 Currently support English, Spanish, French and Chinese. More languages are coming
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -71,7 +71,6 @@ Jun Chen (Peter) - [LinkedIn](https://www.linkedin.com/in/jun-peter-chen-1893991
 Project Link: [https://github.com/rulerpe/DuXine](https://github.com/rulerpe/DuXin)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://github.com/rulerpe/DuXin-Frontend
